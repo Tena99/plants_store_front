@@ -1,0 +1,172 @@
+footer {
+  position: relative;
+  bottom: 0;
+
+  section {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  .footer_item {
+    width: 20%;
+    padding: 0;
+
+    strong {
+      color: #374a3d;
+      font-size: 22px;
+      line-height: 32px;
+      font-weight: 700;
+    }
+
+    a,
+    p {
+      color: #678570;
+      font-weight: 500;
+      font-size: 18px;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      margin: 0;
+
+      strong {
+        font-size: 18px;
+      }
+    }
+
+    li {
+      margin-bottom: 15px;
+
+      &:first-of-type {
+        margin-bottom: 20px;
+      }
+    }
+
+    .footer_title {
+      margin-bottom: 20px;
+    }
+  }
+
+  /* .footer_menu {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+
+    .footer_item {
+      width: 100%;
+    }
+  } */
+
+  .footer_img_container {
+    img {
+      display: block;
+      width: 90%;
+      margin: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 1028px) {
+  footer {
+    section {
+      flex-wrap: wrap;
+    }
+
+    .footer_item {
+      width: 45%;
+      margin: 15px;
+    }
+
+    .footer_contacts {
+      order: 1;
+    }
+
+    .footer_company {
+      order: 2;
+    }
+
+    .footer_support {
+      order: 3;
+    }
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  footer {
+    .footer_item {
+      width: 100%;
+
+      .footer_sub_item {
+        width: 50%;
+      }
+    }
+
+    .footer_contacts {
+      display: flex;
+      justify-content: space-between;
+
+      h4 {
+        margin-bottom: 20px;
+
+        strong {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .footer_company {
+      width: 47%;
+      margin: 0 0 15px 15px;
+    }
+
+    .footer_support {
+      width: 47%;
+      margin: 0 15px 15px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 556px) {
+  footer {
+    .footer_item {
+      margin: 0 0 10px 0;
+      padding: 5px;
+    }
+    .footer_company {
+      width: 50%;
+    }
+
+    .footer_support {
+      width: 50%;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  footer {
+    section {
+      flex-direction: column;
+    }
+
+    .footer_item {
+      width: 70%;
+      margin: auto;
+    }
+
+    .footer_contacts {
+      flex-direction: column;
+
+      .footer_sub_item {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+
+    .footer_img_container {
+      display: none;
+    }
+  }
+}
