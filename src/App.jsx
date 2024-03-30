@@ -14,21 +14,8 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
-      <div>
-        <button
-          disabled={i18next.language === "en"}
-          onClick={() => i18next.changeLanguage("en")}
-        >
-          EN
-        </button>
-        <button
-          disabled={i18next.language === "de"}
-          onClick={() => i18next.changeLanguage("de")}
-        >
-          DE
-        </button>
-      </div>
+      <Header />
+
       <main>
         <Outlet />
       </main>
