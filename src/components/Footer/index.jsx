@@ -1,8 +1,10 @@
 import styles from "./styles.module.css";
-import footerImg from "../../assets/footer.png";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+import footerImg from "../../assets/images/footer.png";
+import logo from "../../assets/images/logo.svg";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -12,7 +14,8 @@ export default function Footer() {
       <section>
         <div className={styles.footer_item}>
           <h3 className={styles.footer_title}>
-            <strong>Plants</strong>
+            <img src={logo} alt="logo in leaf shape"></img>
+            <strong>Plantopia</strong>
           </h3>
 
           <p>{t("nav.Slogan")}</p>

@@ -1,5 +1,103 @@
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/Helvetica-Compressed.eot");
+  src: url("./assets/fonts/Helvetica/Helvetica-Compressed.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/Helvetica-Compressed.woff2") format("woff2"),
+    url("./assets/fonts/Helvetica/Helvetica-Compressed.woff") format("woff"),
+    url("./assets/fonts/Helvetica/Helvetica-Compressed.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/Helvetica-Compressed.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/Helvetica-Light.eot");
+  src: url("./assets/fonts/Helvetica/Helvetica-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/Helvetica-Light.woff2") format("woff2"),
+    url("./assets/fonts/Helvetica/Helvetica-Light.woff") format("woff"),
+    url("./assets/fonts/Helvetica/Helvetica-Light.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/Helvetica-Light.svg") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/HelveticaRounded-Bold.eot");
+  src: url("./assets/fonts/Helvetica/HelveticaRounded-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/HelveticaRounded-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Helvetica/HelveticaRounded-Bold.woff") format("woff"),
+    url("./assets/fonts/Helvetica/HelveticaRounded-Bold.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/HelveticaRounded-Bold.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/Helvetica-Oblique.eot");
+  src: url("./assets/fonts/Helvetica/Helvetica-Oblique.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/Helvetica-Oblique.woff2") format("woff2"),
+    url("./assets/fonts/Helvetica/Helvetica-Oblique.woff") format("woff"),
+    url("./assets/fonts/Helvetica/Helvetica-Oblique.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/Helvetica-Oblique.svg") format("svg");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/Helvetica-BoldOblique.eot");
+  src: url("./assets/fonts/Helvetica/Helvetica-BoldOblique.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/Helvetica-BoldOblique.woff2") format("woff2"),
+    url("./assets/fonts/Helvetica/Helvetica-BoldOblique.woff") format("woff"),
+    url("./assets/fonts/Helvetica/Helvetica-BoldOblique.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/Helvetica-BoldOblique.svg") format("svg");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/Helvetica-Bold.eot");
+  src: url("./assets/fonts/Helvetica/Helvetica-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/Helvetica-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Helvetica/Helvetica-Bold.woff") format("woff"),
+    url("./assets/fonts/Helvetica/Helvetica-Bold.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/Helvetica-Bold.svg") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/Helvetica/Helvetica.eot");
+  src: url("./assets/fonts/Helvetica/Helvetica.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Helvetica/Helvetica.woff2") format("woff2"),
+    url("Helvetica.woff") format("woff"),
+    url("./assets/fonts/Helvetica/Helvetica.ttf") format("truetype"),
+    url("./assets/fonts/Helvetica/Helvetica.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, Inter, system-ui, Avenir, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,6 +108,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Helvetica, Arial, Inter, system-ui, Avenir, sans-serif;
 }
 
 ul {

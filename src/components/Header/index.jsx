@@ -2,10 +2,8 @@ import "./styles.css";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 import i18next from "i18next";
@@ -38,7 +36,7 @@ function Header() {
                 </Button>
               )}
             </div>
-            <Navbar.Brand href="#">Plants</Navbar.Brand>
+            <Navbar.Brand href="#">Plantopia</Navbar.Brand>
           </div>
 
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
@@ -74,7 +72,7 @@ function Header() {
                       </Button>
                     )}
                   </div>
-                  <Navbar.Brand href="#">Plants</Navbar.Brand>
+                  <Navbar.Brand href="#">Plantopia</Navbar.Brand>
                 </div>
 
                 <div className="d-md-flex  justify-content-md-between">
@@ -89,8 +87,8 @@ function Header() {
                   </Nav.Link>
                 </div>
                 <div className="d-md-flex justify-content-md-around w-25">
-                  <Nav.Link href="/login">{t("nav.Login")}</Nav.Link>
-                  <Nav.Link href="/sign">{t("nav.Sign")}</Nav.Link>
+                  <Nav.Link href="/login">{t("nav.SignIn")}</Nav.Link>
+                  <Nav.Link href="/sign">{t("nav.SignUp")}</Nav.Link>
                 </div>
               </Nav>
             </Offcanvas.Body>
