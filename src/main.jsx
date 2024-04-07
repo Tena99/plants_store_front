@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import Login from "./pages/Login/";
+import DetailedPage from "./pages/DetailedPage/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/products/:productId",
+        element: <DetailedPage />,
       },
       {
         path: "/login",
