@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import axios from "axios";
+import useLocalStorageState from "use-local-storage-state";
 
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useLocalStorageState("user", {
+    defaultValue: null,
+  });
   const [isInvalid, setIsInvalid] = useState(false);
 
   async function login(inputData) {

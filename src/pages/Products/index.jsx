@@ -28,7 +28,9 @@ export default function Products() {
               className={styles.card_container}
             >
               <Card key={product._id} className={styles.card}>
-                <Card.Img variant="top" src={plant_img} />
+                <div className={styles.img_container}>
+                  <Card.Img variant="top" src={product.imageUrl} />
+                </div>
                 <Card.Body>
                   <Card.Title className={styles.card_title}>
                     {product.en.name}

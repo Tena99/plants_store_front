@@ -5,12 +5,16 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { UserContext } from "../../../Context/createContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
 function Header() {
   const { t } = useTranslation();
+  const { user, logout } = useContext(UserContext);
 
   return (
     <>
@@ -76,19 +80,36 @@ function Header() {
                 </div>
 
                 <div className="d-md-flex  justify-content-md-between">
-                  <Nav.Link href="/" className="me-lg-5 me-3">
+                  <Link to="/" className="me-lg-5 me-3 nav-link">
                     {t("nav.Home")}
-                  </Nav.Link>
-                  <Nav.Link href="/about" className="me-lg-5 me-3">
+                  </Link>
+                  <Link to="/about" className="me-lg-5 me-3 nav-link">
                     {t("nav.About")}
-                  </Nav.Link>
-                  <Nav.Link href="/products" className="me-lg-5 me-3">
+                  </Link>
+                  <Link to="/products" className="me-lg-5 me-3 nav-link">
                     {t("nav.Products")}
-                  </Nav.Link>
+                  </Link>
                 </div>
-                <div className="d-md-flex justify-content-md-around w-25">
-                  <Nav.Link href="/login">{t("nav.SignIn")}</Nav.Link>
-                  <Nav.Link href="/sign">{t("nav.SignUp")}</Nav.Link>
+                <div className="d-md-flex justify-content-md-around w-25 align-items-center">
+                  {user ? (
+                    <>
+                      <p className="m-0 d-md-inline d-none">
+                        Hi {user.nickname}!
+                      </p>
+                      <Button className="btn-outline-success" onClick={logout}>
+                        Log out
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Link to="/login" className="nav-link">
+                        {t("nav.SignIn")}
+                      </Link>
+                      <Link to="/sign" className="nav-link">
+                        {t("nav.SignUp")}
+                      </Link>
+                    </>
+                  )}
                 </div>
               </Nav>
             </Offcanvas.Body>

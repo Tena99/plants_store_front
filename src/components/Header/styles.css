@@ -6,3 +6,7 @@
 .navbar-brand {
   margin: 0;
 }
+
+.btn-primary {
+  --bs-btn-bg: transparent;
+}

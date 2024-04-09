@@ -24,11 +24,13 @@ export default function DetailedPage() {
     <>
       {product ? (
         <div className={styles.container}>
-          <img
-            src={plant_img}
-            alt="plant_image"
-            className={styles.plant_photo}
-          ></img>
+          <div className={styles.img_container}>
+            <img
+              src={product.imageUrl}
+              alt="plant_image"
+              className={styles.img}
+            ></img>
+          </div>
 
           <div className={styles.wrapper}>
             <div className={styles.product_item}>
