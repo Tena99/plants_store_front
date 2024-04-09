@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import { UserContext } from "../../../Context/createContext";
 import { useState } from "react";
 import { useContext } from "react";
+import welcome_plant from "../../assets/images/welcome_plant.png";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const { user, login, logout } = useContext(UserContext);
@@ -13,17 +15,17 @@ export default function Login() {
     <>
       {user ? (
         <div className={styles.message_container}>
+          <div className={styles.img_container}>
+            <img src={welcome_plant} alt="plant_drawing"></img>
+          </div>
+
           <p>
-            <span>Hi {user.nickname}!</span> Ready to dive into the world of
-            botanical wonders at Plantopia? 🌿
+            <strong>Welcome {user.nickname}!</strong> Ready to dive into the
+            world of botanical wonders at Plantopia? 🌿
           </p>
-          <Button
-            variant="success"
-            onClick={logout}
-            className={styles.logout_btn}
-          >
-            Log out
-          </Button>
+          <Link to={"/products"} className={`${styles.link} nav-link`}>
+            Explore
+          </Link>
         </div>
       ) : (
         <form
