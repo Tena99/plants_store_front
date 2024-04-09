@@ -9,7 +9,6 @@ export function UserProvider({ children }) {
   const [user, setUser] = useLocalStorageState("user", {
     defaultValue: null,
   });
-  const [isInvalid, setIsInvalid] = useState(false);
 
   async function login(inputData) {
     try {
@@ -17,12 +16,9 @@ export function UserProvider({ children }) {
         "https://plants-store-backend.onrender.com/auth",
         inputData
       );
-
-      setIsInvalid(false);
       setUser(data);
     } catch (error) {
-      setIsInvalid(true);
-      console.error(error);
+      throw new Error("Login failed. Check your credentials");
     }
   }
 

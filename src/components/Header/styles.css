@@ -10,3 +10,8 @@
 .btn-primary {
   --bs-btn-bg: transparent;
 }
+
+.welcome_msg {
+  color: var(--bs-nav-link-color);
+  font-size: var(--bs-nav-link-font-size);
+}

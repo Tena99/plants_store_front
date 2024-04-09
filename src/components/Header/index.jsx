@@ -93,7 +93,7 @@ function Header() {
                 <div className="d-md-flex justify-content-md-around w-25 align-items-center">
                   {user ? (
                     <>
-                      <p className="m-0 d-md-inline d-none">
+                      <p className="m-0 d-md-inline d-none welcome_msg">
                         Hi {user.nickname}!
                       </p>
                       <Button className="btn-outline-success" onClick={logout}>

@@ -5,8 +5,9 @@ import { useState } from "react";
 import { useContext } from "react";
 
 export default function Login() {
-  const { user, login, logout, isInvalid } = useContext(UserContext);
+  const { user, login, logout } = useContext(UserContext);
   const [inputData, setInputData] = useState({ email: null, password: null });
+  const [isInvalid, setIsinvalid] = useState(false);
 
   return (
     <>
@@ -27,9 +28,15 @@ export default function Login() {
       ) : (
         <form
           className={styles.form_container}
-          onSubmit={(event) => {
+          onSubmit={async (event) => {
             event.preventDefault();
-            login(inputData);
+            try {
+              await login(inputData);
+              setIsinvalid(false);
+            } catch (error) {
+              setIsinvalid(true);
+              throw new Error("Failed");
+            }
           }}
         >
           <h3>Login to Your Account</h3>
@@ -76,7 +83,11 @@ export default function Login() {
             />
           </div>
 
-          {/* {isInvalid ? <div>Invalid credentials</div> : undefined} */}
+          {isInvalid ? (
+            <p className={styles.error}>
+              Invalid credentials. Please try again
+            </p>
+          ) : undefined}
 
           <Button type="submit" variant="success" className={styles.submit_btn}>
             Sign in
