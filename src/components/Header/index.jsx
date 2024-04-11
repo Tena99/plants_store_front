@@ -40,10 +40,25 @@ function Header() {
                 </Button>
               )}
             </div>
-            <Navbar.Brand href="#">Plantopia</Navbar.Brand>
+            <Navbar.Brand href="/">Plantopia</Navbar.Brand>
           </div>
 
-          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
+          <div className="d-flex">
+            <Link to={"/cart"} className="d-md-none d-inline me-3 cart">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-cart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+              </svg>
+            </Link>
+
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
+          </div>
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-md}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-md`}
@@ -76,7 +91,7 @@ function Header() {
                       </Button>
                     )}
                   </div>
-                  <Navbar.Brand href="#">Plantopia</Navbar.Brand>
+                  <Navbar.Brand href="/">Plantopia</Navbar.Brand>
                 </div>
 
                 <div className="d-md-flex  justify-content-md-between">
@@ -96,6 +111,19 @@ function Header() {
                       <p className="m-0 d-md-inline d-none welcome_msg">
                         Hi {user.nickname}!
                       </p>
+
+                      <Link to={"/cart"} className="d-md-inline d-none cart">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-cart-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                        </svg>
+                      </Link>
                       <Button className="btn-outline-success" onClick={logout}>
                         Log out
                       </Button>
