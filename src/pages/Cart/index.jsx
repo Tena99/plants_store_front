@@ -12,43 +12,34 @@ export default function Cart() {
 
       <hr></hr>
 
+      <div className={styles.cart_title}>
+        <h4>Product Details</h4>
+        <h4>Quantity</h4>
+        <h4>Price</h4>
+        <h4>Total</h4>
+      </div>
+
       <div className={styles.items_container}>
         <article className={styles.cart_item}>
-          <h4>Product Details</h4>
-
-          <div className={styles.cart_sub_item}>
-            <div className={styles.img_container}>
-              <img src={plant_img} alt="plant_photo"></img>
-            </div>
-
-            <h5>Monstera</h5>
+          <div className={styles.img_container}>
+            <img src={plant_img} alt="plant_photo"></img>
           </div>
+
+          <h5>Monstera</h5>
+        </article>
+
+        <article className={`${styles.cart_item} ${styles.counter}`}>
+          <button>-</button>
+          <p>2</p>
+          <button>+</button>
         </article>
 
         <article className={styles.cart_item}>
-          <h4>Quantity</h4>
-
-          <div className={`${styles.cart_sub_item} ${styles.counter}`}>
-            <button>-</button>
-            <p>2</p>
-            <button>+</button>
-          </div>
+          <p>414.00 €</p>
         </article>
 
         <article className={styles.cart_item}>
-          <h4>Price</h4>
-
-          <div className={styles.cart_sub_item}>
-            <p>44.00 Eur</p>
-          </div>
-        </article>
-
-        <article className={styles.cart_item}>
-          <h4>Total</h4>
-
-          <div className={styles.cart_sub_item}>
-            <p>88.00 Eur</p>
-          </div>
+          <p>818.00 €</p>
         </article>
 
         <article className={styles.cart_item}>
