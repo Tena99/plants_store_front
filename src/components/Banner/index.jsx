@@ -14,7 +14,7 @@ export default function Banner({ imgSrc, title, description, items }) {
         <div className={styles.banner_text_container}>
           {items.map((item) => {
             return (
-              <div className={styles.banner_item}>
+              <div key={item.id} className={styles.banner_item}>
                 <strong>{item.number}</strong>
                 <p>{item.description}</p>
               </div>

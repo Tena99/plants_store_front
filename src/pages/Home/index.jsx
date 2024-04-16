@@ -28,9 +28,21 @@ export default function Home() {
           " It is a long established fact that a reader will be distracted by the thing."
         }
         items={[
-          { number: "200+", description: "Satisfied clients per Month" },
-          { number: "10+", description: "Years Practical Experience" },
-          { number: "60+", description: "Awesome Team members" },
+          {
+            id: "17286481875",
+            number: "200+",
+            description: "Satisfied clients per Month",
+          },
+          {
+            id: "17286481876",
+            number: "10+",
+            description: "Years Practical Experience",
+          },
+          {
+            id: "17286481877",
+            number: "60+",
+            description: "Awesome Team members",
+          },
         ]}
       />
     </div>

@@ -54,6 +54,11 @@
         width: fit-content;
       }
 
+      p.unavailable {
+        background-color: #ffc9c9;
+        color: #ea0303;
+      }
+
       .counter {
         display: flex;
         align-items: center;
