@@ -102,6 +102,7 @@
     .price_section {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 15px;
 
       p {
         font-size: 28px;

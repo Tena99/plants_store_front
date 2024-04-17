@@ -28,7 +28,7 @@ export default function Cart() {
           });
 
           setPrice(sum);
-          setVat(parseFloat((sum * 0.2).toFixed(1)));
+          setVat(parseFloat((sum * 0.2).toFixed(2)));
         }
       } catch (error) {
         throw new Error(error);

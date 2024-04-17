@@ -2,13 +2,18 @@ import { useParams } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import plant_img from "../../assets/images/banner_plant.png";
 import Button from "react-bootstrap/Button";
+import { useContext } from "react";
+import { UserContext } from "../../../Context/createContext";
+import Alert from "react-bootstrap/Alert";
 
 export default function DetailedPage() {
-  const { productId } = useParams();
   const [product, setProduct] = useState();
   const [count, setCount] = useState(1);
+  const [message, toggleMessage] = useState(false);
+
+  const { productId } = useParams();
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     async function getData() {
@@ -19,6 +24,25 @@ export default function DetailedPage() {
     }
     getData();
   }, []);
+
+  async function addToCart(userId, productId) {
+    try {
+      const response = await axios.post(
+        `https://plants-store-backend.onrender.com/users/${userId}/cart`,
+        {
+          productId: productId,
+        }
+      );
+
+      toggleMessage(true);
+
+      setTimeout(() => {
+        toggleMessage(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+    }
+  }
 
   return (
     <>
@@ -89,7 +113,11 @@ export default function DetailedPage() {
                 <span>Total price </span>
                 {product.price * count} €
               </p>
-              <Button variant="success" className={styles.button}>
+              <Button
+                variant="success"
+                className={styles.button}
+                onClick={() => addToCart(user.id, productId)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -103,6 +131,12 @@ export default function DetailedPage() {
                 Add to cart
               </Button>
             </div>
+            {message ? (
+              <Alert variant={"success"}>
+                Great choice! {product.en.name} has been added to your cart.
+                Happy planting! 🌿
+              </Alert>
+            ) : undefined}
           </div>
         </div>
       ) : (
