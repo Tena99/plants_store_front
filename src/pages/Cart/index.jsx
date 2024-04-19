@@ -38,7 +38,18 @@ export default function Cart() {
     getCart();
   }, []);
 
-  // console.log(cart);
+  async function deleteCartItem(productId) {
+    try {
+      await axios.delete(
+        `https://plants-store-backend.onrender.com/users/${user.id}/cart/${productId}`
+      );
+      setCart((prevCart) =>
+        prevCart.filter((item) => item.product._id !== productId)
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <section className={styles.cart_container}>
@@ -68,7 +79,9 @@ export default function Cart() {
                     )}
 
                     <div className={styles.cart_sub_btns}>
-                      <Button>
+                      <Button
+                        onClick={() => deleteCartItem(cartItem.product._id)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
