@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Cart() {
   const { user } = useContext(UserContext);
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState([]);
   const [price, setPrice] = useState(0);
   const [shipping, setShipping] = useState(5);
   const [vat, setVat] = useState(0);
@@ -37,6 +37,32 @@ export default function Cart() {
 
     getCart();
   }, []);
+
+  async function updateCartItemAmount(productId, amount) {
+    try {
+      await axios.patch(
+        `https://plants-store-backend.onrender.com/users/${user.id}/cart`,
+        { productId, amount }
+      );
+
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.product._id === productId ? { ...item, amount } : item
+        )
+      );
+    } catch (error) {
+      console.error("Error updating cart item amount:", error);
+    }
+  }
+
+  useEffect(() => {
+    let sum = 0;
+    cart.forEach((item) => {
+      sum += item.product.price * item.amount;
+    });
+    setPrice(sum);
+    setVat(parseFloat((sum * 0.2).toFixed(2)));
+  }, [cart]);
 
   async function deleteCartItem(productId) {
     try {
@@ -93,7 +119,7 @@ export default function Cart() {
                         </svg>
                         <span className={styles.btn_text}>Remove</span>
                       </Button>
-                      <Button>
+                      {/* <Button>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -104,7 +130,7 @@ export default function Cart() {
                           <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2" />
                         </svg>
                         <span className={styles.btn_text}>Save for later</span>
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
 
@@ -112,7 +138,14 @@ export default function Cart() {
                     <strong>{cartItem.product.price} €</strong>
 
                     <div className={styles.counter}>
-                      <button>
+                      <button
+                        onClick={() => {
+                          updateCartItemAmount(
+                            cartItem.product._id,
+                            cartItem.amount - 1
+                          );
+                        }}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -128,7 +161,14 @@ export default function Cart() {
                         </svg>
                       </button>
                       <span>{cartItem.amount}</span>
-                      <button>
+                      <button
+                        onClick={() => {
+                          updateCartItemAmount(
+                            cartItem.product._id,
+                            cartItem.amount + 1
+                          );
+                        }}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18"
