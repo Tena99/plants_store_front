@@ -11,6 +11,8 @@ export default function Footer() {
 
   return (
     <footer>
+      <hr className={styles.borderline}></hr>
+
       <section>
         <div className={styles.footer_item}>
           <h3 className={styles.footer_title}>
@@ -70,9 +72,9 @@ export default function Footer() {
         </div>
       </section>
 
-      <div className={styles.footer_img_container}>
+      {/* <div className={styles.footer_img_container}>
         <img src={footerImg} alt="footer_image"></img>
-      </div>
+      </div> */}
     </footer>
   );
 }

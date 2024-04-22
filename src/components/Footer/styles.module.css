@@ -2,6 +2,12 @@ footer {
   position: relative;
   bottom: 0;
 
+  .borderline {
+    color: #bf7949;
+    width: 95%;
+    margin: 15px auto 35px auto;
+  }
+
   section {
     display: flex;
     justify-content: space-between;

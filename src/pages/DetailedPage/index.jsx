@@ -31,6 +31,7 @@ export default function DetailedPage() {
         `https://plants-store-backend.onrender.com/users/${userId}/cart`,
         {
           productId: productId,
+          amount: count,
         }
       );
 

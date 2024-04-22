@@ -84,7 +84,7 @@ export default function Cart() {
 
       <div className={styles.cart_wrapper}>
         <div className={styles.item_wrapper}>
-          {cart ? (
+          {cart.length ? (
             cart.map((cartItem) => {
               return (
                 <article

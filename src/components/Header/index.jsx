@@ -98,9 +98,9 @@ function Header() {
                   <Link to="/" className="me-lg-5 me-3 nav-link">
                     {t("nav.Home")}
                   </Link>
-                  <Link to="/about" className="me-lg-5 me-3 nav-link">
+                  {/* <Link to="/about" className="me-lg-5 me-3 nav-link">
                     {t("nav.About")}
-                  </Link>
+                  </Link> */}
                   <Link to="/products" className="me-lg-5 me-3 nav-link">
                     {t("nav.Products")}
                   </Link>
