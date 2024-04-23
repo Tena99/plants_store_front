@@ -87,6 +87,20 @@
           display: flex;
           align-items: center;
 
+          &:hover {
+            background-color: transparent;
+            border: none;
+          }
+
+          &:active {
+            background-color: transparent;
+            color: #318c44;
+          }
+
+          &:focus-visible {
+            box-shadow: none;
+          }
+
           svg {
             margin-right: 7px;
           }
