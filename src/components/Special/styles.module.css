@@ -85,3 +85,37 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .special_wrapper {
+    min-width: 200px;
+
+    .special_card {
+      .img_container {
+        width: 200px;
+        height: 200px;
+      }
+
+      .special_card_title {
+        font-size: 18px;
+      }
+
+      .special_card_text {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 18px;
+        color: #616161;
+
+        span {
+          font-size: 18px;
+          font-weight: 400;
+
+          svg {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

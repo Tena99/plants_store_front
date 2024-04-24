@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 
 import Section from "../../components/Section";
 import Banner from "../../components/Banner";
+import ProfServiceSection from "../../components/ProfService_Section";
 
 import plant_img from "../../assets/images/home_plant.png";
 import banner_plant from "../../assets/images/banner_plant.png";
@@ -45,6 +46,8 @@ export default function Home() {
           },
         ]}
       />
+
+      <ProfServiceSection />
     </div>
   );
 }
