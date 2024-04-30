@@ -4,15 +4,38 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import Special from "../../components/Special";
+import Category from "../../components/Category";
+import { en } from "../../i18n/languages/en.js";
+import { de } from "../../i18n/languages/de.js";
+
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 export default function Products() {
   const [products, setProducts] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function getData() {
-      let { data } = await axios.get(
-        "https://plants-store-backend.onrender.com/products"
+      let { data } = await axios.post(
+        "https://plants-store-backend.onrender.com/products/category",
+        { category: "All" }
       );
+
+      data.result.map((item) => {
+        en.products[item._id] = {
+          name: item.en.name,
+          description: item.en.description,
+          category: item.en.category,
+        };
+
+        de.products[item._id] = {
+          name: item.de.name,
+          description: item.de.description,
+          category: item.de.category,
+        };
+      });
+
       setProducts(data.result);
     }
     getData();
@@ -21,6 +44,33 @@ export default function Products() {
   return (
     <section className={styles.product}>
       <Special />
+
+      <div className={styles.category_container}>
+        <Category
+          categoryName={t("products.categories.All")}
+          setProducts={setProducts}
+        />
+        <Category
+          categoryName={t("products.categories.Leafy")}
+          setProducts={setProducts}
+        />
+        <Category
+          categoryName={t("products.categories.Exotic")}
+          setProducts={setProducts}
+        />
+        <Category
+          categoryName={t("products.categories.Aquatic")}
+          setProducts={setProducts}
+        />
+        <Category
+          categoryName={t("products.categories.Aromatic")}
+          setProducts={setProducts}
+        />
+        <Category
+          categoryName={t("products.categories.Succulents")}
+          setProducts={setProducts}
+        />
+      </div>
 
       <div className={styles.products_container}>
         {products ? (
@@ -37,7 +87,7 @@ export default function Products() {
                   </div>
                   <Card.Body>
                     <Card.Title className={styles.card_title}>
-                      {product.en.name}
+                      {t(`products.${product._id}.name`)}
                     </Card.Title>
                     <Card.Text className={styles.card_text}>
                       <span>
@@ -61,7 +111,7 @@ export default function Products() {
             );
           })
         ) : (
-          <div>Loading...</div>
+          <div>{t("loading")}</div>
         )}
       </div>
     </section>

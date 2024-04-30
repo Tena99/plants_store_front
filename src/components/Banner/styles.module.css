@@ -129,7 +129,7 @@
     }
 
     .banner_wrapper {
-      width: 60%;
+      width: 70%;
 
       article.banner_item {
         width: 95%;
@@ -146,14 +146,16 @@
         strong {
           font-size: 52px;
           align-self: center;
+          margin-bottom: 10px;
         }
 
         h3 {
           text-align: center;
+          font-size: 28px;
         }
 
         p {
-          font-size: 22px;
+          font-size: 16px;
           text-align: center;
         }
       }
@@ -169,6 +171,8 @@
 @media only screen and (max-width: 530px) {
   .banner_container {
     .banner_wrapper {
+      width: 80%;
+
       article.banner_item {
         h3 {
           font-size: 22px;

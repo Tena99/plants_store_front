@@ -1,0 +1,13 @@
+.category_btn {
+  margin: 5px 15px;
+  border-radius: 20px;
+  border: 1.5px solid #24c179;
+  color: #24c179;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1028px) {
+  .category_btn {
+    margin: 5px 5px;
+  }
+}

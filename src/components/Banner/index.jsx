@@ -1,6 +1,10 @@
 import styles from "./styles.module.css";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 export default function Banner({ imgSrc, title, description, items }) {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.banner_container}>
       <div className={styles.banner_wrapper}>
@@ -16,7 +20,7 @@ export default function Banner({ imgSrc, title, description, items }) {
             return (
               <div key={item.id} className={styles.banner_item}>
                 <strong>{item.number}</strong>
-                <p>{item.description}</p>
+                <p>{t(item.description)}</p>
               </div>
             );
           })}

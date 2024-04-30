@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../Context/createContext";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 export default function Cart() {
   const { user } = useContext(UserContext);
@@ -11,6 +12,7 @@ export default function Cart() {
   const [price, setPrice] = useState(0);
   const [shipping, setShipping] = useState(5);
   const [vat, setVat] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function getCart() {
@@ -79,7 +81,7 @@ export default function Cart() {
 
   return (
     <section className={styles.cart_container}>
-      <h3>Shopping Cart</h3>
+      <h3>{t("cart.Title")}</h3>
       <hr></hr>
 
       <div className={styles.cart_wrapper}>
@@ -99,9 +101,11 @@ export default function Cart() {
                     <h4>{cartItem.product.en.name}</h4>
 
                     {cartItem.product.inStock > 0 ? (
-                      <p>In Stock</p>
+                      <p>{t("cart.InStock")}</p>
                     ) : (
-                      <p className={styles.unavailable}>Out of Stock</p>
+                      <p className={styles.unavailable}>
+                        {t("cart.OutOfStock")}
+                      </p>
                     )}
 
                     <div className={styles.cart_sub_btns}>
@@ -117,7 +121,9 @@ export default function Cart() {
                         >
                           <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
                         </svg>
-                        <span className={styles.btn_text}>Remove</span>
+                        <span className={styles.btn_text}>
+                          {t("cart.Remove")}
+                        </span>
                       </Button>
                       {/* <Button>
                         <svg
@@ -189,7 +195,7 @@ export default function Cart() {
               );
             })
           ) : (
-            <div>Products not found.</div>
+            <div>{t("cart.NoProducts")}</div>
           )}
         </div>
 
@@ -197,22 +203,22 @@ export default function Cart() {
 
         <div className={styles.summary_container}>
           <div className={styles.summary_item}>
-            <p>Subtotal</p>
+            <p>{t("cart.Subtotal")}</p>
             <p> {price} €</p>
           </div>
           <div className={styles.summary_item}>
-            <p>Shipping</p>
+            <p>{t("cart.Shipping")}</p>
             <p>{shipping} €</p>
           </div>
           <div className={styles.summary_item}>
-            <p>VAT (20%)</p>
+            <p>{t("cart.VAT")} (20%)</p>
             <p>{vat} €</p>
           </div>
 
           <hr></hr>
 
           <div className={styles.summary_item}>
-            <p>Total</p>
+            <p>{t("cart.Total")}</p>
             <p>{price + shipping + vat} €</p>
           </div>
         </div>

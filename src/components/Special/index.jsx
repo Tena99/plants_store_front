@@ -4,9 +4,11 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import Badge from "react-bootstrap/Badge";
+import { useTranslation } from "react-i18next";
 
 export default function Special() {
   const [special, setSpecial] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function getSpecial() {
@@ -21,7 +23,7 @@ export default function Special() {
 
   return (
     <article className={styles.special}>
-      <h3>Special Offers</h3>
+      <h3>{t("SpecialOffers")}</h3>
 
       <hr></hr>
 
@@ -36,7 +38,7 @@ export default function Special() {
                 >
                   <Card key={product._id} className={styles.special_card}>
                     <Badge bg="warning" className={styles.badge}>
-                      Best price
+                      {t("BestPrice")}
                     </Badge>
 
                     <div className={styles.img_container}>

@@ -109,7 +109,8 @@ function Header() {
                   {user ? (
                     <>
                       <p className="m-0 d-md-inline d-none welcome_msg">
-                        Hi {user.nickname}!
+                        {t("nav.Welcome")} <> </>
+                        {user.nickname}!
                       </p>
 
                       <Link to={"/cart"} className="d-md-inline d-none cart">
@@ -125,7 +126,7 @@ function Header() {
                         </svg>
                       </Link>
                       <Button className="btn-outline-success" onClick={logout}>
-                        Log out
+                        {t("nav.Logout")}
                       </Button>
                     </>
                   ) : (

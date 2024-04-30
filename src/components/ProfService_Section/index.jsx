@@ -4,7 +4,11 @@ import sappling from "../../assets/images/sappling_icon.svg";
 import plant from "../../assets/images/plant_icon.svg";
 import { Link } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 export default function ProfServiceSection() {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.container}>
       <article className={styles.service_item}>
@@ -13,11 +17,8 @@ export default function ProfServiceSection() {
             <img src={gardening_tools} alt="gardening tools photo"></img>
           </div>
 
-          <h5>Pruning plants</h5>
-          <p>
-            Our store offers top-quality plants, expertly cared for. Trust us to
-            prune your plants for vibrant, thriving greenery.
-          </p>
+          <h5>{t("home.ProfFirstTitle")}</h5>
+          <p>{t("home.ProfFirstDesc")}</p>
         </div>
 
         <div className={styles.service_card}>
@@ -25,11 +26,8 @@ export default function ProfServiceSection() {
             <img src={sappling} alt="gardening tools photo"></img>
           </div>
 
-          <h5>Gardening Essentials</h5>
-          <p>
-            Discover top-quality tools for a thriving garden. From shovels to
-            watering cans, we've got your gardening needs covered.
-          </p>
+          <h5>{t("home.ProfSecondTitle")}</h5>
+          <p>{t("home.ProfSecondDesc")}</p>
         </div>
 
         <div className={styles.service_card}>
@@ -37,30 +35,20 @@ export default function ProfServiceSection() {
             <img src={plant} alt="gardening tools photo"></img>
           </div>
 
-          <h5>Plant Trees</h5>
-          <p>
-            Choose us for tree planting. Enhance your space while contributing
-            to environmental preservation and a healthier planet.
-          </p>
+          <h5>{t("home.ProfThirdTitle")}</h5>
+          <p>{t("home.ProfThirdDesc")}</p>
         </div>
       </article>
 
       <article className={styles.service_item}>
-        <h4>Professional Service</h4>
+        <h4>{t("home.ProfMainTitle")}</h4>
 
-        <p>
-          Experience professional service at our store. From expert advice to
-          meticulous care, we're dedicated to ensuring your gardening journey is
-          successful and enjoyable.
-        </p>
+        <p>{t("home.ProfMainDesc")}</p>
 
-        <p>
-          Our knowledgeable staff will guide you every step of the way, ensuring
-          your plants thrive. Your satisfaction is our priority.
-        </p>
+        <p>{t("home.ProfMainDesc2")}</p>
 
         <Link to={"/products"}>
-          Read More{" "}
+          {t("home.ProfBtn")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
