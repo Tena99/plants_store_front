@@ -1,18 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import Special from "../../components/Special";
 import Category from "../../components/Category";
 import { en } from "../../i18n/languages/en.js";
 import { de } from "../../i18n/languages/de.js";
+import Accordion from "react-bootstrap/Accordion";
 
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
 export default function Products() {
   const [products, setProducts] = useState();
+  const [currentSort, setCurrentSort] = useState("Sort & Filter");
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -35,42 +37,133 @@ export default function Products() {
           category: item.de.category,
         };
       });
-
       setProducts(data.result);
     }
     getData();
   }, []);
 
+  function Sort(value, ascending) {
+    if (ascending) {
+      let sortedArr = products.toSorted((productA, productB) => {
+        return productA[value] - productB[value];
+      });
+
+      setProducts(sortedArr);
+    } else {
+      let sortedArr = products.toSorted((productA, productB) => {
+        return productB[value] - productA[value];
+      });
+
+      setProducts(sortedArr);
+    }
+  }
+
+  function sortByDate(dateKey) {
+    let sortedArr = products.toSorted((productA, productB) => {
+      const dateA = new Date(productA[dateKey]);
+      const dateB = new Date(productB[dateKey]);
+
+      return dateA - dateB;
+    });
+
+    setProducts(sortedArr);
+  }
+
   return (
     <section className={styles.product}>
       <Special />
 
-      <div className={styles.category_container}>
-        <Category
-          categoryName={t("products.categories.All")}
-          setProducts={setProducts}
-        />
-        <Category
-          categoryName={t("products.categories.Leafy")}
-          setProducts={setProducts}
-        />
-        <Category
-          categoryName={t("products.categories.Exotic")}
-          setProducts={setProducts}
-        />
-        <Category
-          categoryName={t("products.categories.Aquatic")}
-          setProducts={setProducts}
-        />
-        <Category
-          categoryName={t("products.categories.Aromatic")}
-          setProducts={setProducts}
-        />
-        <Category
-          categoryName={t("products.categories.Succulents")}
-          setProducts={setProducts}
-        />
-      </div>
+      <Accordion defaultActiveKey="0" className={styles.accordion}>
+        <Accordion.Item eventKey="0" className={styles.accordion_item}>
+          <Accordion.Header className={styles.accordion_header}>
+            {currentSort}
+          </Accordion.Header>
+          <Accordion.Body className={styles.accordion_body}>
+            <h5>{t("products.sorting.Sort")}</h5>
+
+            <div className={styles.filters_container}>
+              <Button
+                variant="outline-success"
+                className={styles.filter_btn}
+                onClick={() => {
+                  Sort("sold", false), setCurrentSort("Most Popular");
+                }}
+              >
+                {t("products.sorting.Popular")}
+              </Button>
+
+              <Button
+                variant="outline-success"
+                className={styles.filter_btn}
+                onClick={() => {
+                  Sort("rating", false), setCurrentSort("Most Rated");
+                }}
+              >
+                {t("products.sorting.Rated")}
+              </Button>
+
+              <Button
+                variant="outline-success"
+                className={styles.filter_btn}
+                onClick={() => {
+                  sortByDate("dateAdded"), setCurrentSort("Most Recent");
+                }}
+              >
+                {t("products.sorting.Recent")}
+              </Button>
+
+              <Button
+                variant="outline-success"
+                className={styles.filter_btn}
+                onClick={() => {
+                  Sort("price", false), setCurrentSort("Highest Price");
+                }}
+              >
+                {t("products.sorting.HighestPrice")}
+              </Button>
+
+              <Button
+                variant="outline-success"
+                className={styles.filter_btn}
+                onClick={() => {
+                  Sort("price", true), setCurrentSort("Lowest Price");
+                }}
+              >
+                {t("products.sorting.LowestPrice")}
+              </Button>
+            </div>
+
+            <h5>Categories</h5>
+
+            <div className={styles.category_container}>
+              <Category
+                categoryName={t("products.categories.All")}
+                setProducts={setProducts}
+              />
+              <Category
+                categoryName={t("products.categories.Leafy")}
+                setProducts={setProducts}
+              />
+              <Category
+                categoryName={t("products.categories.Exotic")}
+                setProducts={setProducts}
+              />
+              <Category
+                categoryName={t("products.categories.Aquatic")}
+                setProducts={setProducts}
+              />
+              <Category
+                categoryName={t("products.categories.Aromatic")}
+                setProducts={setProducts}
+              />
+              <Category
+                categoryName={t("products.categories.Succulents")}
+                setProducts={setProducts}
+              />
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
 
       <div className={styles.products_container}>
         {products ? (

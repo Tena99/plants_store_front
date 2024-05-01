@@ -61,6 +61,15 @@ export const de = {
       Aromatic: "Aromatische Pflanzen",
       Succulents: "Sukkulenten und Kakteen",
     },
+    sorting: {
+      SortAndFilter: "Sortieren & Filtern",
+      Sort: "Sortieren nach",
+      Popular: "Beliebteste",
+      Rated: "Am besten bewertet",
+      Recent: "Neueste",
+      HighestPrice: "Höchster Preis",
+      LowestPrice: "Niedrigster Preis",
+    },
   },
 
   detailsPage: {

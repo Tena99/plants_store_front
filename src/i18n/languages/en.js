@@ -61,6 +61,15 @@ export const en = {
       Aromatic: "Aromatic plants",
       Succulents: "Succulents and cacti",
     },
+    sorting: {
+      SortAndFilter: "Sort & Filter",
+      Sort: "Sort by",
+      Popular: "Most Popular",
+      Rated: "Most Rated",
+      Recent: "Most Recent",
+      HighestPrice: "Highest Price",
+      LowestPrice: "Lowest Price",
+    },
   },
 
   detailsPage: {
@@ -70,7 +79,8 @@ export const en = {
     Total: "Total price",
     SuccessNote:
       "Great choice! {{productEnName}} has been added to your cart. Happy planting! 🌿",
-    FailNote: "Before adding this item to your cart, please log in. Thanks for choosing us!",
+    FailNote:
+      "Before adding this item to your cart, please log in. Thanks for choosing us!",
   },
 
   cart: {
