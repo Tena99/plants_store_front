@@ -1,9 +1,6 @@
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-import footerImg from "../../assets/images/footer.png";
 import logo from "../../assets/images/logo.svg";
 
 export default function Footer() {

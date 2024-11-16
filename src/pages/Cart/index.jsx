@@ -37,7 +37,7 @@ export default function Cart() {
     }
 
     getCart();
-  }, []);
+  });
 
   async function updateCartItemAmount(productId, amount) {
     try {

@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
 export default function Banner({ imgSrc, title, description, items }) {

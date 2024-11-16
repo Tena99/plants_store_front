@@ -19,7 +19,7 @@ export default function Special() {
     }
 
     getSpecial();
-  }, []);
+  });
 
   return (
     <article className={styles.special}>

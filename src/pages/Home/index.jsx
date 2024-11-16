@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 import Section from "../../components/Section";
 import Banner from "../../components/Banner";
 import ProfServiceSection from "../../components/ProfService_Section";

@@ -42,11 +42,11 @@ export default function DetailedPage() {
       setProduct(data);
     }
     getData();
-  }, []);
+  });
 
   async function addToCart(userId, productId) {
     try {
-      const response = await axios.post(`${API_URL}/users/${userId}/cart`, {
+      await axios.post(`${API_URL}/users/${userId}/cart`, {
         productId: productId,
         amount: count,
       });

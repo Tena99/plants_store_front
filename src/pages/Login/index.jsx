@@ -7,7 +7,7 @@ import welcome_plant from "../../assets/images/welcome_plant.png";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-  const { user, login, logout } = useContext(UserContext);
+  const { user, login } = useContext(UserContext);
   const [inputData, setInputData] = useState({ email: null, password: null });
   const [isInvalid, setIsinvalid] = useState(false);
 
