@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import plant_img from "../../assets/images/banner_plant.png";
 import Button from "react-bootstrap/Button";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../Context/createContext";
@@ -14,12 +13,12 @@ export default function Cart() {
   const [vat, setVat] = useState(0);
   const { t } = useTranslation();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     async function getCart() {
       try {
-        let { data } = await axios.get(
-          `https://plants-store-backend.onrender.com/users/${user.id}/cart`
-        );
+        let { data } = await axios.get(`${API_URL}/users/${user.id}/cart`);
         setCart(data);
 
         if (data) {
@@ -42,10 +41,10 @@ export default function Cart() {
 
   async function updateCartItemAmount(productId, amount) {
     try {
-      await axios.patch(
-        `https://plants-store-backend.onrender.com/users/${user.id}/cart`,
-        { productId, amount }
-      );
+      await axios.patch(`${API_URL}/users/${user.id}/cart`, {
+        productId,
+        amount,
+      });
 
       setCart((prevCart) =>
         prevCart.map((item) =>
@@ -68,9 +67,7 @@ export default function Cart() {
 
   async function deleteCartItem(productId) {
     try {
-      await axios.delete(
-        `https://plants-store-backend.onrender.com/users/${user.id}/cart/${productId}`
-      );
+      await axios.delete(`${API_URL}/users/${user.id}/cart/${productId}`);
       setCart((prevCart) =>
         prevCart.filter((item) => item.product._id !== productId)
       );

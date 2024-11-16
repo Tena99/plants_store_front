@@ -9,7 +9,6 @@ import Alert from "react-bootstrap/Alert";
 import { en } from "../../i18n/languages/en";
 import { de } from "../../i18n/languages/de";
 
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
 export default function DetailedPage() {
@@ -22,11 +21,11 @@ export default function DetailedPage() {
   const { user } = useContext(UserContext);
   const { t } = useTranslation();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     async function getData() {
-      let { data } = await axios.get(
-        `https://plants-store-backend.onrender.com/products/${productId}`
-      );
+      let { data } = await axios.get(`${API_URL}/products/${productId}`);
 
       en.products[data._id] = {
         name: data.en.name,
@@ -47,13 +46,10 @@ export default function DetailedPage() {
 
   async function addToCart(userId, productId) {
     try {
-      const response = await axios.post(
-        `https://plants-store-backend.onrender.com/users/${userId}/cart`,
-        {
-          productId: productId,
-          amount: count,
-        }
-      );
+      const response = await axios.post(`${API_URL}/users/${userId}/cart`, {
+        productId: productId,
+        amount: count,
+      });
 
       toggleSuccessMsg(true);
 

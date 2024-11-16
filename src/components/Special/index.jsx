@@ -10,11 +10,11 @@ export default function Special() {
   const [special, setSpecial] = useState();
   const { t } = useTranslation();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     async function getSpecial() {
-      let { data } = await axios.get(
-        "https://plants-store-backend.onrender.com/products/special"
-      );
+      let { data } = await axios.get(`${API_URL}/products/special`);
       setSpecial(data.result);
     }
 

@@ -9,13 +9,11 @@ export function UserProvider({ children }) {
   const [user, setUser] = useLocalStorageState("user", {
     defaultValue: null,
   });
+  const API_URL = import.meta.env.VITE_API_URL;
 
   async function login(inputData) {
     try {
-      let { data } = await axios.post(
-        "https://plants-store-backend.onrender.com/auth",
-        inputData
-      );
+      let { data } = await axios.post(`${API_URL}/auth`, inputData);
       setUser(data);
     } catch (error) {
       throw new Error("Login failed. Check your credentials");

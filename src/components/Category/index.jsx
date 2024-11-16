@@ -6,11 +6,13 @@ import { en } from "../../i18n/languages/en.js";
 import { de } from "../../i18n/languages/de.js";
 
 export default function Category({ categoryName, setProducts }) {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   async function getCategory() {
-    const { data } = await axios.post(
-      "https://plants-store-backend.onrender.com/products/category",
-      { category: categoryName, lang: i18next.language }
-    );
+    const { data } = await axios.post(`${API_URL}/products/category`, {
+      category: categoryName,
+      lang: i18next.language,
+    });
 
     data.result.map((item) => {
       en.products[item._id] = {

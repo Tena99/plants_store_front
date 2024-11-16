@@ -9,7 +9,6 @@ import { en } from "../../i18n/languages/en.js";
 import { de } from "../../i18n/languages/de.js";
 import Accordion from "react-bootstrap/Accordion";
 
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 
 export default function Products() {
@@ -17,12 +16,13 @@ export default function Products() {
   const [currentSort, setCurrentSort] = useState("Sort & Filter");
   const { t } = useTranslation();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     async function getData() {
-      let { data } = await axios.post(
-        "https://plants-store-backend.onrender.com/products/category",
-        { category: "All" }
-      );
+      let { data } = await axios.post(`${API_URL}/products/category`, {
+        category: "All",
+      });
 
       data.result.map((item) => {
         en.products[item._id] = {
